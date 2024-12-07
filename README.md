@@ -33,7 +33,7 @@ $ror_{i}$: The estimated rate of return of stock $i$
 
 ${RoR}$: The minimum rate of return coming from the assigned portfolio. In this model, I choose RoR = 5.5956
 
-$ cov_{i,j}$: The covariance between 2 stocks $i$ and $j$
+$cov_{i,j}$: The covariance between 2 stocks $i$ and $j$
 
 $(stockweight_i)$ & $(stockweight_j)$: The proportion of the portfolio invested in stock $i$ and $j$
 
@@ -51,16 +51,19 @@ $w_i$: the portfolio's pertial amount invested in stock $i$
 $$\text{Maximize } \sum_{i=1}^n R_i \cdot w_i$$
 
 1. **Risk Constraint:**
+
 $$
 \sum_{i=1}^n \sum_{j=1}^n cov_{i,j} \cdot w_i \cdot w_j \leq \text{RiskLimit}
 $$
 
 2. **Budget Constraint:**
+
 $$
 \sum_{i=1}^n w_i = 1
 $$
 
 3. **Non-Negativity Constraint:**
+
 $$
 w_i \geq 0, \quad \forall i
 $$
@@ -113,7 +116,10 @@ $$ \sum_{i \in I} w_i = 1 , \ w_i \ \geq 0,\ \forall i \in I $$
 
 
 - The Third Constraint: To ensure minimum level of risk:
-    $$\text{MAD} \leq c $$
+  
+  $$
+  \text{MAD} \leq c
+  $$
 
 In MAD formulation, it measures the average absolute deviation which implies that the deviations must be non-negative. As all scenario provides identical returns, for $c=0$, there will be no deviation which is unrealistic. To ensure the feasibility of our optimization problem, we can bound $c$ as $0 < c \leq max_t \left(d_t^+ - d_t^- \right) $.
 
